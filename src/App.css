@@ -175,6 +175,16 @@ li a {
     font-size: 1.2rem;
   }
 
+  .error-message{
+    font-size: 1.2rem;
+    border: 1px solid var(--head-color);
+    border-radius: 10rem;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -ms-border-radius: 10rem;
+    -o-border-radius: 10rem;
+  }
+
   .btn {
     margin: 2.4rem 0;
   }
@@ -193,4 +203,13 @@ li a {
     font-size: 3.6rem;
     font-weight: 600;
   }
+
+  .title{
+    background: #044e04;
+    border-radius: 10rem;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -ms-border-radius: 10rem;
+    -o-border-radius: 10rem;
+}
 }

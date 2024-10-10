@@ -20,7 +20,7 @@ function Home() {
         variants={pageVariants}
         transition={pageTransition}
       >
-        <h1 className="hero-heahing">Welcome to P Pizza</h1>
+        <h1 className="hero-heahing">Welcome to PizzaCut</h1>
         <p className="para">What would you like to have?</p>
         <Link to="/order">
         <button className="main-btn">Start Order</button></Link>

@@ -63,6 +63,10 @@ a {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.grid-five--cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .container {
   max-width: 120rem;
   margin: 0 auto;
@@ -136,6 +140,11 @@ li a {
   text-align: center;
   justify-content: center;
 
+  background-image: url("./Images/back5.jpg");
+  background-position: center;
+  background-size: cover;
+
+
   .hero-heahing {
     font-size: 6.4rem;
     font-weight: 900;
@@ -145,8 +154,8 @@ li a {
 
 .order-section {
   width: 100%;
-  height: 90vh;
-  margin-top: 2rem;
+  /* height: 90vh; */
+  margin-top: 8rem;
   display: flex;
   align-items: center;
   text-align: center;
@@ -162,7 +171,8 @@ li a {
   }
 
   .pizza-card {
-    padding: 2rem;
+    position: relative;
+    padding: 1.2rem;
     border: 1px solid var(--head-color);
     border-radius: .5rem;
     -webkit-border-radius: .5rem;
@@ -171,11 +181,28 @@ li a {
     -o-border-radius: .5rem;
   }
 
+  .main-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50rem;
+    -webkit-border-radius: 50rem;
+    -moz-border-radius: 50rem;
+    -ms-border-radius: 50rem;
+    -o-border-radius: 50rem;
+}
+
   .pizza-info {
     font-size: 1.2rem;
   }
 
-  .error-message{
+  .error-message {
+    margin-top: 2rem;
     font-size: 1.2rem;
     border: 1px solid var(--head-color);
     border-radius: 10rem;
@@ -204,12 +231,26 @@ li a {
     font-weight: 600;
   }
 
-  .title{
-    background: #044e04;
-    border-radius: 10rem;
-    -webkit-border-radius: 10rem;
-    -moz-border-radius: 10rem;
-    -ms-border-radius: 10rem;
-    -o-border-radius: 10rem;
-}
+  .title {
+    background: #4565cf;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+  }
+
+  .subtitle {
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+    letter-spacing: .1rem;
+  }
+
+  .back-btn {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2.4rem;
+  }
 }

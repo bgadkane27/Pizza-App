@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const pageVariants = {
   initial: { opacity: 0, x: -100 },
@@ -27,12 +27,21 @@ function Thanks() {
         <h1 className="para">Thank you for your order!</h1>
 
         {selectedPizzaNames.length > 0 && (
-          <p>
+          <p className="subtitle">
             You have ordered: {selectedPizzaNames.join(", ")}.
           </p>
         )}
 
         <p className="title">Your order will be ready in next 15-20 minutes.</p>
+
+        <div className="back-btn">
+          <NavLink to="/order">
+            <button>New Order</button>
+          </NavLink>
+          <NavLink to="/">
+            <button>Home</button>
+          </NavLink>
+        </div>
       </motion.div>
     </section>
   );

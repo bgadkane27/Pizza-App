@@ -51,9 +51,9 @@ function Order() {
       >
         <h2 className="para">Select Your Pizza</h2>
         <div className="container">
-          <div className="grid grid-three--cols">
+          <div className="grid grid-four--cols">
             {pizzainfo.map((pizza) => {
-              const { id, name, price } = pizza;
+              const { id, name, price, image } = pizza;
               const isSelected = selectedPizzas.includes(id);
               return (
                 <div className="pizza-card" key={id} onClick={() => handlePizzaSelect(id)}
@@ -62,6 +62,9 @@ function Order() {
                     cursor: "pointer",
                   }}
                 >
+                  <div className="main-image">
+                    <img src={image} alt="Image" />
+                  </div>
                   <h2 className="title">{name}</h2>
                   <p className="pizza-info">
                     <span className="pizza-info">Price : </span>
@@ -72,11 +75,11 @@ function Order() {
             })}
           </div>
         </div>
-
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button className="btn" onClick={handleCompleteOrder}>
           Complete Order
         </button>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+
       </motion.div>
     </section>
   );

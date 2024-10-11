@@ -58,7 +58,7 @@ function Order() {
               return (
                 <div className="pizza-card" key={id} onClick={() => handlePizzaSelect(id)}
                   style={{
-                    borderColor: isSelected ? "#00ff00" : "#df4a1c",
+                    borderColor: isSelected ? "#00ff00" : "#fff",
                     cursor: "pointer",
                   }}
                 >

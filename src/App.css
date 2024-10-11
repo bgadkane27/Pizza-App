@@ -140,7 +140,7 @@ li a {
   text-align: center;
   justify-content: center;
 
-  background-image: url("./Images/back5.jpg");
+  background-image: url("./Images/back1.jpg");
   background-position: center;
   background-size: cover;
 
@@ -155,25 +155,30 @@ li a {
 .order-section {
   width: 100%;
   /* height: 90vh; */
-  margin-top: 8rem;
+  margin-top: 5rem;
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
 
+  /* background-image: url("./Images/back1.jpg");
+  background-position: center;
+  background-size: cover;
+  filter: blur(8px);  */
+
   .para {
-    font-size: 3.6rem;
-    font-weight: 600;
+    font-size: 2.4rem;
+    font-weight: 800;
   }
 
   .grid {
-    gap: 6.4rem;
+    gap: 2rem 6.4rem;
   }
 
   .pizza-card {
     position: relative;
     padding: 1.2rem;
-    border: 1px solid var(--head-color);
+    border: 1px solid var(--para-color);
     border-radius: .5rem;
     -webkit-border-radius: .5rem;
     -moz-border-radius: .5rem;
@@ -190,6 +195,7 @@ li a {
   img{
     width: 80px;
     height: 80px;
+    outline: 2px solid var(--head-color);
     border-radius: 50rem;
     -webkit-border-radius: 50rem;
     -moz-border-radius: 50rem;
@@ -199,6 +205,12 @@ li a {
 
   .pizza-info {
     font-size: 1.2rem;
+  }
+
+  .title{
+    padding-top: .5rem;
+    color: var(--para-color);
+    font-weight: 400;
   }
 
   .error-message {
@@ -215,6 +227,28 @@ li a {
   .btn {
     margin: 2.4rem 0;
   }
+
+  .container {
+    position: relative;
+    /* width: 100%;
+    height: 100vh; */
+  }
+  
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("./Images/back1.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: blur(5px);
+    z-index: -1;
+    -webkit-filter: blur(5px);
+}
+  
 }
 
 .thanks-section {
@@ -226,9 +260,14 @@ li a {
   text-align: center;
   justify-content: center;
 
+  background-image: url("./Images/back1.jpg");
+  background-position: center;
+  background-size: cover;
+
   .para {
     font-size: 3.6rem;
     font-weight: 600;
+    color: var(--para-color);
   }
 
   .title {

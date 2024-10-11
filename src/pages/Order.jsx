@@ -63,7 +63,7 @@ function Order() {
                   }}
                 >
                   <div className="main-image">
-                    <img src={image} alt="Image" />
+                    <img src={image} alt="Pizza Image" />
                   </div>
                   <h2 className="title">{name}</h2>
                   <p className="pizza-info">
@@ -77,7 +77,7 @@ function Order() {
         </div>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button className="btn" onClick={handleCompleteOrder}>
-          Complete Order
+          Place Order
         </button>
 
       </motion.div>

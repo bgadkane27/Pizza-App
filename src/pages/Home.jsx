@@ -12,7 +12,7 @@ const pageTransition = { duration: 0.5 };
 
 function Home() {
   return (
-    <main className="main-section">
+    <main className="main-section grid">
       <motion.div
         initial="initial"
         animate="in"

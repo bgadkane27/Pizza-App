@@ -16,7 +16,7 @@ function Thanks() {
   const { selectedPizzaNames } = location.state || { selectedPizzaNames: [] };
 
   return (
-    <section className="thanks-section">
+    <section className="thanks-section grid">
       <motion.div
         initial="initial"
         animate="in"

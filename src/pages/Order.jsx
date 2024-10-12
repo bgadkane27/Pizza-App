@@ -41,7 +41,7 @@ function Order() {
   };
 
   return (
-    <section className="order-section">
+    <section className="order-section grid">
       <motion.div
         initial="initial"
         animate="in"

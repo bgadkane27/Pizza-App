@@ -35,7 +35,7 @@ h6 {
 p {
   font-family: "Poppins", sans-serif;
   color: var(--para-color);
-  padding: 1.2rem 0;
+  /* padding: 1.2rem 0; */
 }
 
 li {
@@ -83,7 +83,7 @@ a {
   font-size: 1.8rem;
 }
 
-button {
+.main-btn {
   padding: 1.2rem 2.4rem;
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
@@ -98,9 +98,20 @@ button {
   transition: all .3s linear;
 }
 
-button:hover {
+.main-btn:hover {
   background: #f83e05;
   background-color: #f83e05;
+}
+
+.cart-btn{
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10rem;
+  cursor: pointer;
+  
+  display: flex;
+  align-items: center;
 }
 
 header {
@@ -133,7 +144,7 @@ li a {
 
 .main-section {
   width: 100%;
-  height: 90vh;
+  height: 97vh;
   /* margin-top: 20rem; */
   display: flex;
   align-items: center;
@@ -171,15 +182,20 @@ li a {
     font-weight: 800;
   }
 
+  p{
+    letter-spacing: .1rem;
+  }
+
   .grid {
     gap: 2rem 2.4rem;
   }
 
   .pizza-card {
-    width:20rem;
-    max-width: 20rem;
+    width:25rem;
+    max-width: 25rem;
     position: relative;
     padding: 1.2rem;
+    text-align: left;
     border: 1px solid var(--para-color);
     border-radius: .5rem;
     -webkit-border-radius: .5rem;
@@ -195,25 +211,44 @@ li a {
   }
 
   img{
-    width: 80px;
-    height: 80px;
-    outline: 2px solid var(--head-color);
-    border-radius: 50rem;
-    -webkit-border-radius: 50rem;
-    -moz-border-radius: 50rem;
-    -ms-border-radius: 50rem;
-    -o-border-radius: 50rem;
+    width: 100%;
+    height: auto;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
 }
 
   .pizza-info {
     font-size: 1.2rem;
     letter-spacing: .1rem;
+    padding: .5rem 0;
+  }
+
+  .pizza-category{
+    display: flex;
+    align-items: start;
+
+    p{
+      display: flex;
+      align-items: center;
+      color: var(--para-color);
+    }
+    
+  }
+
+  .cart-bttn{
+    display: flex;
+    text-align: center;
   }
 
   .title{
     padding-top: .5rem;
     color: var(--para-color);
     font-weight: 400;
+    display: flex;
+    align-items: start;
   }
 
   .error-message {
@@ -256,7 +291,7 @@ li a {
 
 .thanks-section {
   width: 100%;
-  height: 90vh;
+  height: 97vh;
   /* margin-top: 5rem; */
   display: flex;
   align-items: center;
@@ -296,6 +331,18 @@ li a {
     gap: 2.4rem;
   }
 }
+
+.section-footer{
+  width: 100%;
+  background: #000;  
+
+  p{
+    font-size: 1.2rem;
+    color: #929292;
+  }
+
+}
+
 
 @media (max-width: 48rem){
 

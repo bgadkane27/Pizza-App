@@ -36,10 +36,10 @@ function Thanks() {
 
         <div className="back-btn">
           <NavLink to="/order">
-            <button>New Order</button>
+            <button className="main-btn">New Order</button>
           </NavLink>
           <NavLink to="/">
-            <button>Home</button>
+            <button className="main-btn">Home</button>
           </NavLink>
         </div>
       </motion.div>

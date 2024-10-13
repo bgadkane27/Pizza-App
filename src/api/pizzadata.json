@@ -3,48 +3,56 @@
         "id": 101,
         "name": "Margherita",
         "price": 8.99,
-        "image": "/Images/pizza1.jpg"
+        "image": "/Images/pizza1.jpg",
+        "category": "Non Veg"
     },
     {
         "id": 102,
         "name": "Pepperoni",
         "price": 10.99,
-        "image": "/Images/pizza2.jpg"
+        "image": "/Images/pizza2.jpg",
+        "category": "Veg"
     },
     {
         "id": 103,
         "name": "BBQ Chicken",
         "price": 12.49,
-        "image": "/Images/pizza3.jpg"
+        "image": "/Images/pizza3.jpg",
+        "category": "Non Veg"
     },
     {
         "id": 104,
         "name": "Vegetarian",
         "price": 9.99,
-        "image": "/Images/pizza4.jpg"
+        "image": "/Images/pizza4.jpg",
+        "category": "Non Veg"
     },
     {
         "id": 105,
         "name": "Hawaiian",
         "price": 11.99,
-        "image": "/Images/pizza5.jpg"
+        "image": "/Images/pizza5.jpg",
+        "category": "Non Veg"
     },
     {
         "id": 106,
         "name": "Meat Lovers",
         "price": 13.99,
-        "image": "/Images/pizza1.jpg"
+        "image": "/Images/pizza1.jpg",
+        "category": "Non Veg"
     },
     {
         "id": 107,
         "name": "Cheese",
         "price": 9.99,
-        "image": "/Images/pizza1.jpg"
+        "image": "/Images/pizza1.jpg",
+        "category": "Veg"
     },
     {
         "id": 108,
         "name": "Vanilla",
         "price": 11.99,
-        "image": "/Images/pizza1.jpg"
+        "image": "/Images/pizza1.jpg",
+        "category": "Veg"
     }
 ]

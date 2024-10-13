@@ -1,7 +1,11 @@
 export const Footer = () => {
   return (
-    <footer>
-      <p>© 2024 P P Pizza Order. All rights reserved.</p>
+    <footer className="section-footer">
+      <div className="container grid">
+        <div className="footer-grid">
+          <p>© 2024 PizzaCut. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
   );
 };

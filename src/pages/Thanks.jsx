@@ -12,9 +12,6 @@ const pageTransition = { duration: 0.5, ease: "easeIn" };
 
 function Thanks() {
 
-  const location = useLocation();
-  const { selectedPizzaNames } = location.state || { selectedPizzaNames: [] };
-
   return (
     <section className="thanks-section grid">
       <motion.div
@@ -25,12 +22,6 @@ function Thanks() {
         transition={pageTransition}
       >
         <h1 className="para">Thank you for your order!</h1>
-
-        {selectedPizzaNames.length > 0 && (
-          <p className="subtitle">
-            You have ordered: {selectedPizzaNames.join(", ")}.
-          </p>
-        )}
 
         <p className="title">Your order will be ready in next 15-20 minutes.</p>
 

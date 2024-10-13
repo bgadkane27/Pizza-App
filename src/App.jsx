@@ -12,6 +12,7 @@ import { AppLayout } from "./Layout/Applayout";
 import Home from "./pages/Home";
 import Order from "./pages/Order";
 import Thanks from "./pages/Thanks";
+import Cart from "./pages/Cart";
 
 function App() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="order" element={<Order />} />
           <Route path="thanks" element={<Thanks />} />
+          <Route path="cart" element={<Cart />} />
         </Route>
       </Routes>
     </AnimatePresence>

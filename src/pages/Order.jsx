@@ -13,29 +13,34 @@ const pageVariants = {
 const pageTransition = { duration: 0.5 };
 
 function Order() {
-  const [selectedPizzas, setSelectedPizzas] = useState([]);
+  const [cart, setCart] = useState([]); // Track items in the cart
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const handlePizzaSelect = (id) => {
-    setErrorMessage("");
+  // Function to add pizza to the cart
+  const addToCart = (pizza) => {
+    setErrorMessage(""); // Clear any error messages
+    const existingItem = cart.find((item) => item.id === pizza.id);
 
-    setSelectedPizzas((prevSelected) =>
-      prevSelected.includes(id)
-        ? prevSelected.filter((pizzaId) => pizzaId !== id)
-        : [...prevSelected, id]
-    );
+    if (existingItem) {
+      // If the pizza is already in the cart, increase its quantity
+      setCart(
+        cart.map((item) =>
+          item.id === pizza.id ? { ...item, quantity: item.quantity + 1 } : item
+        )
+      );
+    } else {
+      // If the pizza is not in the cart, add it with a quantity of 1
+      setCart([...cart, { ...pizza, quantity: 1 }]);
+    }
   };
 
-  const handleCompleteOrder = () => {
-    if (selectedPizzas.length === 0) {
-      setErrorMessage("Please select at least one pizza to place your order.");
+  // Function to view the cart
+  const viewCart = () => {
+    if (cart.length === 0) {
+      setErrorMessage("No item added to the cart.");
     } else {
-      const selectedPizzaNames = pizzainfo
-        .filter((pizza) => selectedPizzas.includes(pizza.id))
-        .map((pizza) => pizza.name);
-
-      navigate("/thanks", { state: { selectedPizzaNames } });
+      navigate("/cart", { state: { cart } }); // Pass the cart state when navigating
     }
   };
 
@@ -53,17 +58,10 @@ function Order() {
           <div className="grid grid-four--cols">
             {pizzainfo.map((pizza) => {
               const { id, name, price, image, category } = pizza;
-              const isSelected = selectedPizzas.includes(id);
+              const cartItem = cart.find((item) => item.id === id); // Check if pizza is in the cart
+
               return (
-                <div
-                  className="pizza-card"
-                  key={id}
-                  onClick={() => handlePizzaSelect(id)}
-                  style={{
-                    borderColor: isSelected ? "#00ff00" : "#fff",
-                    cursor: "pointer",
-                  }}
-                >
+                <div className="pizza-card" key={id}>
                   <div className="main-image">
                     <img src={image} alt="Pizza Image" />
                   </div>
@@ -74,28 +72,33 @@ function Order() {
                         style={{
                           color: category === "Non Veg" ? "#ff0000" : "#00ff00",
                           marginRight: ".8rem",
-                          fontSize: "1.5rem"
+                          fontSize: "1.5rem",
                         }}
                       />
                       {category}
                     </p>
                   </div>
                   <p className="pizza-info">
-                    <span className="pizza-info">Price : </span>
+                    <span className="pizza-info">Price: </span>
                     {price}
                   </p>
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, libero.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                   <div className="cart-bttn">
-                    <button className="cart-btn">Add to Cart <FaWhiskeyGlass style={{marginLeft: ".8rem"}} /></button>
+                    <button className="cart-btn" onClick={() => addToCart(pizza)}>
+                      {cartItem ? `Quantity: ${cartItem.quantity}` : "Add to Cart"}
+                      <FaWhiskeyGlass style={{ marginLeft: ".8rem" }} />
+                    </button>
                   </div>
                 </div>
               );
             })}
           </div>
         </div>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <button className="btn main-btn" onClick={handleCompleteOrder}>
-          Place Order
+
+        {errorMessage && <p className="error">{errorMessage}</p>}
+
+        <button className="btn main-btn" onClick={viewCart}>
+          Visit Cart
         </button>
       </motion.div>
     </section>

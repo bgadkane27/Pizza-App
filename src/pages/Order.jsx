@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import pizzainfo from "../api/pizzadata.json";
 import { FaSquareCaretUp, FaWhiskeyGlass } from "react-icons/fa6";
@@ -13,34 +13,30 @@ const pageVariants = {
 const pageTransition = { duration: 0.5 };
 
 function Order() {
-  const [cart, setCart] = useState([]); // Track items in the cart
+  const [cart, setCart] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  // Function to add pizza to the cart
   const addToCart = (pizza) => {
-    setErrorMessage(""); // Clear any error messages
+    setErrorMessage("");
     const existingItem = cart.find((item) => item.id === pizza.id);
 
     if (existingItem) {
-      // If the pizza is already in the cart, increase its quantity
       setCart(
         cart.map((item) =>
           item.id === pizza.id ? { ...item, quantity: item.quantity + 1 } : item
         )
       );
     } else {
-      // If the pizza is not in the cart, add it with a quantity of 1
       setCart([...cart, { ...pizza, quantity: 1 }]);
     }
   };
 
-  // Function to view the cart
   const viewCart = () => {
     if (cart.length === 0) {
-      setErrorMessage("No item added to the cart.");
+      setErrorMessage("Kindly add at least one pizza to view cart");
     } else {
-      navigate("/cart", { state: { cart } }); // Pass the cart state when navigating
+      navigate("/cart", { state: { cart } });
     }
   };
 
@@ -58,7 +54,7 @@ function Order() {
           <div className="grid grid-four--cols">
             {pizzainfo.map((pizza) => {
               const { id, name, price, image, category } = pizza;
-              const cartItem = cart.find((item) => item.id === id); // Check if pizza is in the cart
+              const cartItem = cart.find((item) => item.id === id);
 
               return (
                 <div className="pizza-card" key={id}>
@@ -82,10 +78,17 @@ function Order() {
                     <span className="pizza-info">Price: </span>
                     {price}
                   </p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
                   <div className="cart-bttn">
-                    <button className="cart-btn" onClick={() => addToCart(pizza)}>
-                      {cartItem ? `Quantity: ${cartItem.quantity}` : "Add to Cart"}
+                    <button
+                      className="cart-btn"
+                      onClick={() => addToCart(pizza)}
+                    >
+                      {cartItem
+                        ? `Quantity: ${cartItem.quantity}`
+                        : "Add to Cart"}
                       <FaWhiskeyGlass style={{ marginLeft: ".8rem" }} />
                     </button>
                   </div>
@@ -94,7 +97,8 @@ function Order() {
             })}
           </div>
         </div>
-
+        <br />
+        {/* <br />     */}
         {errorMessage && <p className="error">{errorMessage}</p>}
 
         <button className="btn main-btn" onClick={viewCart}>

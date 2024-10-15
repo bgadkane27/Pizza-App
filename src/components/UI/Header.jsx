@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { TiShoppingCart } from "react-icons/ti";
 
 export const Header = () => {
   return (
@@ -12,8 +13,11 @@ export const Header = () => {
           </div>
           <nav>
             <ul>
-              <li>
+              {/* <li>
                 <NavLink to="/">Home</NavLink>
+              </li> */}
+              <li>
+                <NavLink to="/cart"><TiShoppingCart style={{ marginRight: '8px', fontSize: "2.4rem" }}/> Cart</NavLink>
               </li>
             </ul>
           </nav>

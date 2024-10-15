@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { RiDeleteBinFill } from "react-icons/ri";
-
 
 const pageVariants = {
   initial: { opacity: 0, x: -100 },
@@ -39,21 +38,25 @@ function Cart() {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
     if (updatedCart.length === 0) {
-      setErrorMessage(<span style={{ fontSize: '1.4rem', color: '#fff' }}>
-        No item present in the cart.
-      </span>);
+      setErrorMessage(
+        <span style={{ fontSize: "1.4rem", fontWeight: "300", color: "#fff" }}>
+          Pizza is not present into the cart.
+        </span>
+      );
     }
   };
 
   const removeAllItems = () => {
     setCart([]);
-    setErrorMessage(<span style={{ fontSize: '1.4rem', color: '#fff' }}>
-      No item present in the cart.
-    </span>);
+    setErrorMessage(
+      <span style={{ fontSize: "1.4rem", fontWeight: "300", color: "#fff" }}>
+        Pizza is not present into the cart.
+      </span>
+    );
   };
 
   const handleRedirectToOrders = () => {
-    navigate("/order"); 
+    navigate("/order");
   };
 
   const subtotal = cart.reduce(
@@ -67,22 +70,30 @@ function Cart() {
 
   return (
     <section className="cart-section container">
-      <motion.div 
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-      transition={pageTransition}
+      <motion.div
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
       >
         <div className="cart-left">
           <h2 className="cart-head">View Cart</h2>
+          <hr />
+          <br />
+          <br />
           {cart.length === 0 ? (
             <div className="start">
-            <p>{errorMessage}</p>
-            <button className="cart-btn" onClick={handleRedirectToOrders}>
-              Start Order
-            </button>
-          </div>
+              <img
+                src="Images/cart2.png"
+                alt="Image"
+                className="nocart-image"
+              />
+              <p>{errorMessage}</p>
+              <button className="start-btn" onClick={handleRedirectToOrders}>
+                Start Order
+              </button>
+            </div>
           ) : (
             <div className="cart-items">
               {cart.map((item) => (
@@ -98,24 +109,29 @@ function Cart() {
                       <button
                         onClick={() => updateQuantity(item.id, "decrease")}
                       >
-                        <FaMinus style={{color: "#df4a1c"}} />
+                        <FaMinus style={{ color: "#df4a1c" }} />
                       </button>
                       <span className="item-quantity">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item.id, "increase")}
                       >
-                        <FaPlus style={{color: "#df4a1c"}}/>
+                        <FaPlus style={{ color: "#df4a1c" }} />
                       </button>
                     </div>
                     <p className="cart-item-price">
                       ₹{(item.price * item.quantity).toFixed(2)}
                     </p>
                     <button
-                      className="remove-item name-cart" 
+                      className="remove-item name-cart"
                       onClick={() => removeItem(item.id)}
                     >
-                      <RiDeleteBinFill style={{marginRight: ".5rem", fontSize: "2rem", paddingTop: ".2rem"}} />
-                      {/* Remove */}
+                      <RiDeleteBinFill
+                        style={{
+                          marginRight: ".5rem",
+                          fontSize: "2rem",
+                          paddingTop: ".2rem",
+                        }}
+                      />
                     </button>
                   </div>
                 </div>
@@ -124,13 +140,29 @@ function Cart() {
           )}
           {cart.length > 0 && (
             <button className="cart-btn" onClick={removeAllItems}>
-             <RiDeleteBinFill style={{marginRight: ".5rem"}} /> Remove All 
+              <RiDeleteBinFill style={{ marginRight: ".5rem" }} /> Remove All
             </button>
           )}
         </div>
+      </motion.div>
+      {cart.length === 0 ? (
+        <motion.div
+          className="nocart-right"
+          initial="initial"
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
+          <img
+            src="Images/nopizza.png"
+            alt="Image"
+            className="nocart-image-right"
+          />
         </motion.div>
-
-        <motion.div className="cart-right"
+      ) : (
+        <motion.div
+          className="cart-right"
           initial="initial"
           animate="in"
           exit="out"
@@ -152,6 +184,7 @@ function Cart() {
           </div>
           <button className="checkout-btn">Checkout ₹{total}</button>
         </motion.div>
+      )}
     </section>
   );
 }

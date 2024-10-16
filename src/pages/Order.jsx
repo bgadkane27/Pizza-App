@@ -5,7 +5,7 @@ import pizzainfo from "../api/pizzadata.json";
 import { FaSquareCaretUp, FaWhiskeyGlass } from "react-icons/fa6";
 
 const pageVariants = {
-  initial: { opacity: 0, x: -100 },
+  initial: { opacity: 0, x: -5 },
   in: { opacity: 1, x: 0 },
   out: { opacity: 0, x: 100 },
 };

@@ -285,10 +285,10 @@ li a {
     background-image: url("./Images/back1.jpg");
     background-position: center;
     background-size: cover;
-    filter: blur(12px);
+    filter: blur(3rem);
     z-index: -1;
-    -webkit-filter: blur(12px);
-  }
+    -webkit-filter: blur(3rem);
+}
 }
 
 .thanks-section {
